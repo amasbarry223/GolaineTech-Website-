@@ -1,0 +1,175 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+/* aether studio theme */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-heading: var(--font-display), 'Syne Fallback';
+  --font-sans: var(--font-body), 'Inter Fallback';
+  --font-mono: var(--font-geist-mono), 'Geist Mono Fallback';
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-bg-soft: var(--bg-soft);
+  --color-surface: var(--surface);
+  --color-card: var(--surface);
+  --color-card-foreground: var(--foreground);
+  --color-popover: var(--surface);
+  --color-popover-foreground: var(--foreground);
+  --color-primary: var(--accent);
+  --color-primary-foreground: var(--background);
+  --color-secondary: var(--surface);
+  --color-secondary-foreground: var(--foreground);
+  --color-muted: var(--bg-soft);
+  --color-muted-foreground: var(--ink-muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-foreground: var(--background);
+  --color-ink: var(--foreground);
+  --color-ink-muted: var(--ink-muted);
+  --color-destructive: oklch(0.6 0.22 25);
+  --color-border: var(--line);
+  --color-input: var(--line);
+  --color-ring: var(--accent);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+}
+
+:root {
+  color-scheme: dark;
+  --background: #0e0e10;
+  --bg-soft: #16161a;
+  --surface: #1c1c21;
+  --foreground: #f5f5f2;
+  --ink-muted: #9a9a95;
+  --accent: #27b7a5;
+  --accent-2: #3de0cc;
+  --line: rgba(245, 245, 242, 0.08);
+  --radius: 0.5rem;
+  --text-hero: clamp(2rem, 5vw, 3.5rem);
+
+  /* Panneaux Services — chapitres narratifs (≠ tokens de layout) */
+  --panel-deep: #0e0e10;
+  --panel-elevated: #16161a;
+  --panel-surface: #1c1c21;
+  --panel-teal: #0f1f1d;
+  --panel-cool: #141820;
+  --panel-warm: #1a1816;
+  --panel-light: #f4f3ee;
+  --panel-light-alt: #ececea;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply font-sans;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    @apply bg-background text-foreground;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--background);
+  }
+}
+
+/* Hide default cursor on devices that support a custom one */
+@media (hover: hover) and (pointer: fine) {
+  html:not(.reduce-motion) .custom-cursor-active * {
+    cursor: none !important;
+  }
+}
+
+@layer utilities {
+  .focus-ring {
+    @apply outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+  .text-hero {
+    font-size: var(--text-hero);
+  }
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Reveal helper */
+.reveal-line {
+  display: block;
+  overflow: hidden;
+}
+
+/* Marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee var(--marquee-duration, 30s) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+  * {
+    scroll-behavior: auto !important;
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* Page hero — overlay DN teal Golaine Tech (Contact, Formations…) */
+.page-hero-overlay,
+.contact-hero-overlay {
+  background:
+    linear-gradient(to bottom, rgba(14, 14, 16, 0.78) 0%, transparent 30%),
+    linear-gradient(to top, rgba(14, 14, 16, 0.95) 0%, rgba(15, 31, 29, 0.55) 42%, transparent 72%),
+    linear-gradient(
+      to right,
+      rgba(15, 31, 29, 0.97) 0%,
+      rgba(14, 14, 16, 0.92) 46%,
+      rgba(14, 14, 16, 0.38) 78%,
+      transparent 100%
+    ),
+    radial-gradient(ellipse 62% 52% at 90% 16%, rgba(39, 183, 165, 0.22) 0%, transparent 58%),
+    radial-gradient(ellipse 48% 42% at 6% 88%, rgba(61, 224, 204, 0.14) 0%, transparent 56%);
+}
+
+.contact-map-frame {
+  filter: grayscale(0.35) invert(0.9) hue-rotate(180deg) contrast(0.95) brightness(0.85);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-map-frame {
+    filter: grayscale(0.2) brightness(0.9);
+  }
+}
