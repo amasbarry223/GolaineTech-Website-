@@ -3,6 +3,7 @@ import type { Metadata, Viewport } from 'next'
 import { Syne, Inter, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { SiteShell } from '@/components/site-shell'
+import { siteUrl } from '@/lib/site-url'
 
 const display = Syne({
   variable: '--font-display',
@@ -19,7 +20,7 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://golaine.tech'),
+  metadataBase: new URL(siteUrl),
   title: {
     default: 'Golaine Tech — Transformation Numérique en Afrique',
     template: '%s — Golaine Tech',
