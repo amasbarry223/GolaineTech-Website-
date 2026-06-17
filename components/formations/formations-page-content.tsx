@@ -294,7 +294,7 @@ export function FormationsPageContent() {
             </a>
           </div>
 
-          <dl className="mt-14 grid max-w-xl grid-cols-3 gap-6 border-t border-foreground/10 pt-10">
+          <dl className="mt-14 grid max-w-xl grid-cols-2 gap-4 border-t border-foreground/10 pt-10 sm:grid-cols-3 sm:gap-6">
             {formationsContent.stats.map((stat) => (
               <div key={stat.label}>
                 <dt className="font-heading text-2xl tracking-tight text-accent-2 md:text-3xl [text-shadow:0_1px_16px_rgba(14,14,16,0.8)]">

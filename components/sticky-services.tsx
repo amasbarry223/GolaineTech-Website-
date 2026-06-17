@@ -133,7 +133,7 @@ export function StickyServices({ services }: { services: Service[] }) {
       {services.map((service, panelIndex) => (
         <div
           key={service.index}
-          className="service-panel sticky top-3 mx-3 flex min-h-[72svh] flex-col overflow-hidden rounded-[3rem] md:top-4 md:mx-5 md:min-h-[85svh] lg:min-h-[calc(100vh-2rem)]"
+          className="service-panel sticky top-3 mx-2 flex min-h-[72svh] flex-col overflow-hidden rounded-[2rem] sm:mx-3 sm:rounded-[3rem] md:top-4 md:mx-5 md:min-h-[85svh] lg:min-h-[calc(100vh-2rem)]"
           style={{
             backgroundColor: service.bg,
             color: service.fg,
@@ -169,7 +169,7 @@ export function StickyServices({ services }: { services: Service[] }) {
           </span>
 
           {/* Top bar */}
-          <div className="relative flex items-center justify-between px-8 pt-8 md:px-14 md:pt-10">
+          <div className="relative flex items-center justify-between px-5 pt-5 sm:px-8 sm:pt-8 md:px-14 md:pt-10">
             <span
               className="font-mono text-xs uppercase tracking-[0.18em]"
               style={{ color: withAlpha(service.fg, 0.5) }}
@@ -198,7 +198,7 @@ export function StickyServices({ services }: { services: Service[] }) {
           <div className="relative flex flex-1 flex-col lg:grid lg:grid-cols-2">
 
             {/* LEFT — texte */}
-            <div className="relative z-10 flex flex-col justify-center px-8 py-8 md:px-14 md:py-10">
+            <div className="relative z-10 flex flex-col justify-center px-5 py-6 sm:px-8 sm:py-8 md:px-14 md:py-10">
               <span
                 className="font-mono text-[11px] tabular-nums"
                 style={{ color: withAlpha(service.fg, 0.3) }}
@@ -208,8 +208,8 @@ export function StickyServices({ services }: { services: Service[] }) {
               </span>
 
               <h3
-                className="relative mt-3 font-heading leading-[0.9] tracking-[-0.03em]"
-                style={{ fontSize: 'clamp(2.6rem, 5.5vw, 4.75rem)' }}
+                className="relative mt-3 font-heading leading-[0.9] tracking-[-0.03em] [overflow-wrap:break-word]"
+                style={{ fontSize: 'clamp(1.6rem, 5.5vw, 4.75rem)' }}
               >
                 {service.title}
               </h3>
