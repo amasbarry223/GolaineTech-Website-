@@ -74,7 +74,7 @@ export const stickyServices: Service[] = [
     fg: ink,
     muted: inkMuted,
     accentLine: '#3de0cc',
-    image: '/projects/dashboard.png',
+    image: '/vishnu-r-nair-1TFbqhRlCCc-unsplash.jpg',
   },
   {
     index: '04',

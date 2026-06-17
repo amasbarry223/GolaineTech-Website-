@@ -48,10 +48,11 @@ const contactInfo = [
 ]
 
 const budgetRanges = [
-  'Moins de 5 000 €',
-  '5 000 — 15 000 €',
-  '15 000 — 50 000 €',
-  '50 000 € et plus',
+  'Moins de 500 000 FCFA',
+  '500 000 — 2 000 000 FCFA',
+  '2 000 000 — 5 000 000 FCFA',
+  '5 000 000 — 15 000 000 FCFA',
+  '15 000 000 FCFA et plus',
   'À définir ensemble',
 ]
 
