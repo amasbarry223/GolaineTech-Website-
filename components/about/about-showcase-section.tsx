@@ -102,8 +102,7 @@ export function AboutShowcaseSection({
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 44vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-background/10 to-transparent" />
-            <figcaption className="absolute inset-x-0 bottom-0 px-6 pb-6 pt-16 font-mono text-[11px] leading-relaxed tracking-wide text-foreground/70 md:px-8 md:pb-8 md:text-xs">
+            <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/50 to-transparent px-6 pb-5 pt-10 font-mono text-[11px] leading-relaxed tracking-wide text-foreground/80 md:px-8 md:pb-6">
               {aboutContent.image.caption}
             </figcaption>
           </div>

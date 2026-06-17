@@ -13,7 +13,7 @@ export const aboutContent = {
   ],
   cta: 'En savoir plus sur notre histoire',
   image: {
-    src: '/projects/atelier_ai.png',
+    src: '/desola-lanre-ologun-BVr3XaBiWLU-unsplash.jpg',
     alt: 'Équipe collaborant sur un projet numérique',
     caption: 'Collaboration, exigence et produits pensés pour durer.',
   },
