@@ -3,8 +3,8 @@ export const workContent = {
   lead: 'réalisations sélectionnées — chaque projet est le fruit d\'une collaboration étroite avec nos clients, ancrée dans des enjeux métier concrets.',
   cta: 'Démarrer un projet',
   heroImage: {
-    src: '/projects/monolith.png',
-    alt: 'Architecture produit — Golaine Tech',
+    src: '/projects/superapp.png',
+    alt: 'Réalisations digitales — Golaine Tech',
     caption: 'Mobile · Web · IA · Design',
   },
   stats: [

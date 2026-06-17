@@ -38,7 +38,7 @@ export const heroSlides: HeroSlide[] = [
       'Applications web et mobiles, intelligence artificielle et design UI/UX — des produits performants, intuitifs et pensés pour durer.',
     primaryCta: { label: 'Démarrer un projet', href: '/contact' },
     secondaryCta: { label: 'Voir nos projets', href: '/work' },
-    media: { type: 'image', src: '/projects/hero-render.png', alt: '' },
+    media: { type: 'image', src: '/professional-male-developer-manages-neural-network-desk.jpg', alt: 'Développeur Golaine Tech — transformation numérique' },
   },
   {
     id: 'ia',
@@ -51,7 +51,7 @@ export const heroSlides: HeroSlide[] = [
       'Nous déployons l’IA là où le retour sur investissement est mesurable, avec une gouvernance claire et des équipes formées à l’usage.',
     primaryCta: { label: 'Nos services IA', href: '/services' },
     secondaryCta: { label: 'Nous contacter', href: '/contact?service=intelligence-artificielle' },
-    media: { type: 'video', poster: '/projects/assistant-ia.png' },
+    media: { type: 'image', src: '/it-technician-oversees-ai-neural-network.jpg', alt: 'Technicien IA — intelligence artificielle Golaine Tech' },
   },
   {
     id: 'formation',
@@ -64,11 +64,7 @@ export const heroSlides: HeroSlide[] = [
       'Du diagnostic à la mise en pratique : nous ancrons la montée en compétences dans votre quotidien, à Bamako et en remote.',
     primaryCta: { label: 'Nos formations', href: '/formations' },
     secondaryCta: { label: 'Découvrir le studio', href: '/studio' },
-    media: {
-      type: '3d',
-      sceneId: 'hero-studio',
-      fallbackImage: '/projects/studio-render.png',
-    },
+    media: { type: 'image', src: '/from-shot-students-with-phones.jpg', alt: 'Formation tech — Golaine Tech' },
   },
 ]
 

@@ -2,7 +2,7 @@ export const servicesPageContent = {
   eyebrow: 'Services',
   lead: 'De la stratégie à l\'exécution, nous combinons design, ingénierie et intelligence artificielle pour des produits durables et mesurables.',
   heroImage: {
-    src: '/projects/dashboard.png',
+    src: '/desola-lanre-ologun-kwzWjTnDPLk-unsplash.jpg',
     alt: 'Tableau de bord et solutions digitales Golaine Tech',
     caption: 'Bamako, Mali · Expertise 360°',
   },

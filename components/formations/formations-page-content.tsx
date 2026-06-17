@@ -78,10 +78,10 @@ function ProgramRow({
             src={imageSrc}
             alt=""
             fill
-            className="object-cover opacity-70 transition-transform duration-700 group-hover:scale-[1.03]"
+            className="object-cover opacity-95 transition-transform duration-700 group-hover:scale-[1.03]"
             sizes="(max-width: 1024px) 100vw, 42vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/40 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-surface/30 lg:to-surface" />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface/30 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-surface/5 lg:to-surface/25" />
           <span className="absolute left-6 top-6 font-mono text-xs tabular-nums text-foreground/70">
             {String(index).padStart(2, '0')}
           </span>
@@ -255,7 +255,7 @@ export function FormationsPageContent() {
               sizes="100vw"
             />
           </div>
-          <div className="absolute inset-0 bg-background/25" />
+          <div className="absolute inset-0 bg-background/45" />
           <div className="page-hero-overlay absolute inset-0" />
         </div>
 
@@ -348,7 +348,7 @@ export function FormationsPageContent() {
                     className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
                     sizes="(max-width: 640px) 100vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-background/10 to-transparent opacity-80 transition-opacity duration-500 group-hover:opacity-90" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/5 to-transparent opacity-60 transition-opacity duration-500 group-hover:opacity-70" />
                   <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between px-5 pb-5 pt-16">
                     <span className="font-mono text-[11px] uppercase tracking-widest text-foreground">
                       {item.label}

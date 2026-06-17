@@ -4,7 +4,7 @@ export const servicesIntro = {
   eyebrow: 'Services',
   title: 'Une suite complète pour votre transformation numérique',
   description:
-    "De la stratégie à l'exécution : nous combinons design, ingénierie et IA pour des produits digitaux durables.",
+    "De la stratégie à l'exécution, nous combinons design, ingénierie et intelligence artificielle pour des produits durables et mesurables.",
 }
 
 /** Marquee accueil + footer — source unique des 9 services */
@@ -27,10 +27,10 @@ export const serviceContactLabels: Record<string, string> = {
   'logiciels-metiers': 'Logiciel métier',
   'intelligence-artificielle': 'Intelligence artificielle',
   'formations-tech-ia': 'Formation',
-  'maintenance-informatique': 'Autre',
+  'maintenance-informatique': 'Maintenance informatique',
   'design-ui-ux': 'Design UI/UX',
-  'securite-videosurveillance': 'Autre',
-  'telephonie-ip': 'Autre',
+  'securite-videosurveillance': 'Sécurité & vidéosurveillance',
+  'telephonie-ip': 'Téléphonie IP',
 }
 
 const ink = '#f5f5f2'
@@ -62,7 +62,7 @@ export const stickyServices: Service[] = [
     muted: inkMutedOnLight,
     accentLine: '#1a9a8a',
     lightScheme: true,
-    image: '/projects/elearning.png',
+    image: '/pexels-naboth-otieno-83498565-19805876.jpg',
   },
   {
     index: '03',
@@ -86,19 +86,19 @@ export const stickyServices: Service[] = [
     fg: ink,
     muted: '#8aa8a3',
     accentLine: '#3de0cc',
-    image: '/projects/assistant-ia.png',
+    image: '/ai-cloud-with-robot-head.jpg',
   },
   {
     index: '05',
     slug: 'formations-tech-ia',
     title: 'Formations tech & IA',
     description: 'Montée en compétences pour vos équipes.',
-    items: ['Fondamentaux IA & ML', 'React / Next.js', 'UI/UX & Design Thinking', 'Cybersécurité'],
+    items: ['Fondamentaux IA & ML', 'React / Next.js', 'UI/UX & Design Thinking', 'Cybersécurité', 'No-Code / Low-Code', 'Maintenance informatique'],
     bg: '#1c1c21',
     fg: ink,
     muted: inkMuted,
     accentLine: '#27b7a5',
-    image: '/projects/atelier.png',
+    image: '/african-american-woman-working-from-home.jpg',
   },
   {
     index: '06',
@@ -111,7 +111,7 @@ export const stickyServices: Service[] = [
     muted: inkMutedOnLight,
     accentLine: '#27b7a5',
     lightScheme: true,
-    image: '/projects/voyage.png',
+    image: '/close-up-man-working-computer-chips.jpg',
   },
   {
     index: '07',
@@ -123,7 +123,7 @@ export const stickyServices: Service[] = [
     fg: ink,
     muted: '#9499a8',
     accentLine: '#6ec4f0',
-    image: '/projects/lumen.png',
+    image: '/representations-user-experience-interface-design.jpg',
   },
   {
     index: '08',
@@ -135,7 +135,7 @@ export const stickyServices: Service[] = [
     fg: ink,
     muted: '#a39e95',
     accentLine: '#c9a227',
-    image: '/projects/nova.png',
+    image: '/engineer-protecting-company-critical-infrastructure-from-cyber-threats.jpg',
   },
   {
     index: '09',
@@ -148,6 +148,6 @@ export const stickyServices: Service[] = [
     muted: '#0a3d36',
     accentLine: '#0e0e10',
     lightScheme: true,
-    image: '/projects/hero-render.png',
+    image: '/telephonie_02.jpg',
   },
 ]

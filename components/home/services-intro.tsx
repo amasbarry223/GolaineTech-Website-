@@ -1,7 +1,7 @@
 'use client'
 
 import { GsapRevealText } from '@/components/gsap-reveal-text'
-import { servicesIntro } from '@/data/home-services'
+import { servicesIntro, stickyServices } from '@/data/home-services'
 
 export function ServicesIntro() {
   return (
@@ -15,7 +15,7 @@ export function ServicesIntro() {
             {servicesIntro.eyebrow}
           </span>
           <span className="font-mono text-xs uppercase tracking-[0.18em] text-foreground/25">
-            01—09
+            01—{String(stickyServices.length).padStart(2, '0')}
           </span>
         </header>
 

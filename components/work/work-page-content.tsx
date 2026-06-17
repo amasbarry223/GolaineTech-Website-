@@ -198,6 +198,7 @@ export function WorkPageContent() {
         ref={heroRef}
         className="work-hero relative flex min-h-svh flex-col justify-end overflow-hidden"
       >
+        {/* Background — même pattern que la page À propos */}
         <div className="work-hero-bg absolute inset-0" aria-hidden>
           <div className="work-hero-bg-image absolute inset-0 origin-center">
             <Image
@@ -205,23 +206,31 @@ export function WorkPageContent() {
               fill
               priority
               alt=""
-              className="object-cover"
+              className="object-cover object-center"
               sizes="100vw"
             />
           </div>
-          <div className="absolute inset-0 bg-background/25" />
+          {/* Calque sombre de base — identique about */}
+          <div className="absolute inset-0 bg-background/45" />
           <div className="page-hero-overlay absolute inset-0" />
         </div>
 
+        {/* Contenu hero — positionné en bas comme la page À propos */}
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 pb-16 pt-36 md:px-12 md:pb-24">
+
+          {/* Eyebrow — même style que about */}
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-accent-2/80">
             {workContent.eyebrow}
           </p>
+
+          {/* H1 — même taille clamp et text-shadow que about */}
           <h1 className="mt-6 max-w-4xl font-heading text-[clamp(2.75rem,8vw,5.5rem)] leading-[1.05] tracking-tight text-foreground [text-shadow:0_2px_20px_rgba(14,14,16,0.9),0_8px_40px_rgba(14,14,16,0.55)]">
             Des produits
             <br />
             qui créent de l&apos;impact.
           </h1>
+
+          {/* Lead — même style et text-shadow que about */}
           <RevealText
             as="p"
             text={`${projects.length} ${workContent.lead}`}
@@ -230,6 +239,8 @@ export function WorkPageContent() {
             delay={0.2}
             className="mt-8 block max-w-xl text-pretty text-lg leading-relaxed text-foreground/90 md:text-xl [text-shadow:0_1px_12px_rgba(14,14,16,0.85)]"
           />
+
+          {/* CTA row — même pattern que about : MagneticButton + lien secondaire */}
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <MagneticButton
               href="/contact"
@@ -248,6 +259,7 @@ export function WorkPageContent() {
             </a>
           </div>
 
+          {/* Stats grid — même structure 3 colonnes que about */}
           <dl className="mt-14 grid max-w-xl grid-cols-3 gap-6 border-t border-foreground/10 pt-10">
             {workContent.stats.map((stat, i) => (
               <div key={stat.label}>
@@ -261,6 +273,7 @@ export function WorkPageContent() {
             ))}
           </dl>
 
+          {/* Caption — même style que about */}
           <p className="mt-10 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/50">
             {workContent.heroImage.caption}
           </p>

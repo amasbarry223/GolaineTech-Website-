@@ -13,7 +13,7 @@ export const aboutContent = {
   ],
   cta: 'En savoir plus sur notre histoire',
   image: {
-    src: '/projects/atelier.png',
+    src: '/projects/atelier_ai.png',
     alt: 'Équipe collaborant sur un projet numérique',
     caption: 'Collaboration, exigence et produits pensés pour durer.',
   },
@@ -33,7 +33,7 @@ export type TeamMember = {
 export const aboutPageContent = {
   eyebrow: 'À propos',
   heroImage: {
-    src: '/projects/atelier.png',
+    src: '/projects/atelier_ai.png',
     alt: 'Équipe Golaine Tech en session de travail',
     caption: 'Bamako, Mali · Innovation ancrée',
   },
@@ -49,7 +49,7 @@ export const aboutPageContent = {
       label: 'Studio',
     },
     {
-      src: '/projects/atelier.png',
+      src: '/projects/atelier_ai.png',
       alt: 'Session collaborative',
       label: 'Collaboration',
     },
@@ -74,6 +74,7 @@ export const teamMembers: TeamMember[] = [
     name: 'Mody Barry',
     role: 'Développeur full-stack',
     bio: 'Applications web et mobile, APIs et livraison de bout en bout.',
+    image: '/barry-optimized.jpg',
     socials: {
       linkedin: 'https://www.linkedin.com/company/golaine-tech',
       github: 'https://github.com/golaine-tech',
@@ -127,7 +128,7 @@ export const aboutPage = {
   story: {
     title: 'Qui sommes-nous ?',
     paragraphs: [
-      "Golaine Tech se positionne comme une plateforme d'innovation dédiée à la transformation numérique. Nous aidons les organisations à concevoir des solutions digitales sur mesure, à améliorer leurs performances, à automatiser leurs processus et à exploiter les technologies modernes.",
+      "Golaine Tech est une entreprise d'innovation dédiée à la transformation numérique. Nous aidons les organisations à concevoir des solutions digitales sur mesure, à améliorer leurs performances, à automatiser leurs processus et à exploiter les technologies modernes.",
       'Ancrés en Afrique, nous établissons des partenariats durables pour concrétiser les ambitions digitales de nos clients — avec la même exigence que nous portons sur chaque livrable.',
       ...aboutContent.paragraphs,
     ],

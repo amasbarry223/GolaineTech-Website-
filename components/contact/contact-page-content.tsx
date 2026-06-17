@@ -22,6 +22,9 @@ const projectTypes = [
   'Logiciel métier',
   'Design UI/UX',
   'Formation',
+  'Maintenance informatique',
+  'Sécurité & vidéosurveillance',
+  'Téléphonie IP',
   'Autre',
 ]
 
@@ -266,7 +269,7 @@ function ContactPageInner() {
               sizes="100vw"
             />
           </div>
-          <div className="absolute inset-0 bg-background/25" />
+          <div className="absolute inset-0 bg-background/45" />
           <div className="page-hero-overlay absolute inset-0" />
         </div>
 
@@ -345,7 +348,7 @@ function ContactPageInner() {
                 </span>
                 <div>
                   <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
-                    Book a meeting
+                    Prendre rendez-vous
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     Préférez un échange direct ? Planifiez un créneau de 30 minutes avec notre équipe.

@@ -51,7 +51,12 @@ export function SiteFooter() {
               Golaine Tech
             </span>
             <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Plateforme d&apos;innovation numérique basée à Bamako, Mali.
+              Entreprise d&apos;innovation numérique basée à Bamako, Mali.
+              Nous accompagnons les entreprises dans leur transformation digitale
+              grâce à des solutions sur mesure — web, mobile, IA et design.
+            </p>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted-foreground">
+              Excellence · Persévérance · Qualité
             </p>
           </div>
           <FooterCol

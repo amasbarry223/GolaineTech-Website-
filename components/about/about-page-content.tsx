@@ -102,7 +102,6 @@ function TeamMemberCard({ member, index }: { member: TeamMember; index: number }
             </span>
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
       </div>
 
       <div className="p-6 md:p-8">
@@ -253,8 +252,12 @@ export function AboutPageContent() {
               sizes="100vw"
             />
           </div>
-          <div className="absolute inset-0 bg-background/25" />
-          <div className="page-hero-overlay absolute inset-0" />
+          {/* Voile général pour unifier l'image */}
+          <div className="absolute inset-0 bg-background/45" />
+          {/* Dégradé haut */}
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(14,14,16,0.65) 0%, transparent 32%)' }} />
+          {/* Dégradé bas pour lisibilité du texte */}
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(14,14,16,0.95) 0%, rgba(14,14,16,0.7) 32%, rgba(14,14,16,0.3) 62%, transparent 82%)' }} />
         </div>
 
         <div className="relative z-10 mx-auto w-full max-w-[1400px] px-6 pb-16 pt-36 md:px-12 md:pb-24">
@@ -390,19 +393,32 @@ export function AboutPageContent() {
           </article>
         </div>
 
-        <div className="about-block mx-auto mt-8 max-w-[1400px] overflow-hidden rounded-[1.75rem] border border-border bg-bg-soft/40 p-8 md:p-12">
-          <h2 className="font-heading text-2xl tracking-tight text-foreground md:text-3xl">
-            {aboutPage.story.title}
-          </h2>
-          <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            {aboutPage.story.paragraphs.slice(0, 2).map((paragraph) => (
-              <p
-                key={paragraph.slice(0, 48)}
-                className="text-pretty text-base leading-relaxed text-muted-foreground md:text-lg"
-              >
-                {paragraph}
-              </p>
-            ))}
+        <div className="about-block mx-auto mt-8 max-w-[1400px] overflow-hidden rounded-[1.75rem] border border-border bg-bg-soft/40">
+          <div className="grid lg:grid-cols-[1fr_320px]">
+            <div className="p-8 md:p-12">
+              <h2 className="font-heading text-2xl tracking-tight text-foreground md:text-3xl">
+                {aboutPage.story.title}
+              </h2>
+              <div className="mt-8 grid gap-6 lg:grid-cols-2">
+                {aboutPage.story.paragraphs.slice(0, 2).map((paragraph) => (
+                  <p
+                    key={paragraph.slice(0, 48)}
+                    className="text-pretty text-base leading-relaxed text-muted-foreground md:text-lg"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
+            </div>
+            <div className="relative hidden min-h-[280px] lg:block">
+              <Image
+                src="/projects/studio-render.png"
+                fill
+                alt="Studio Golaine Tech"
+                className="object-cover"
+                sizes="320px"
+              />
+            </div>
           </div>
         </div>
       </section>

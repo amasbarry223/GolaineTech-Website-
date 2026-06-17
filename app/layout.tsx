@@ -50,6 +50,7 @@ export default function RootLayout({
     <html
       lang="fr"
       className={`${display.variable} ${body.variable} ${geistMono.variable} bg-background`}
+      suppressHydrationWarning
     >
       <body className="font-sans antialiased">
         <SiteShell>{children}</SiteShell>

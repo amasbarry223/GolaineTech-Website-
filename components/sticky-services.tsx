@@ -9,9 +9,20 @@ import { registerGsapPlugins } from '@/lib/gsap-register'
 import { withAlpha } from '@/lib/color-alpha'
 import { TransitionLink } from '@/components/page-transition'
 import { ArrowUpRight } from 'lucide-react'
-import type { Service } from '@/components/sticky-services'
 
-export type { Service }
+export type Service = {
+  index: string
+  slug: string
+  title: string
+  description: string
+  items: string[]
+  bg: string
+  fg: string
+  muted: string
+  accentLine?: string
+  lightScheme?: boolean
+  image: string
+}
 
 export function StickyServices({ services }: { services: Service[] }) {
   const stackRef = useRef<HTMLDivElement>(null)
@@ -122,7 +133,7 @@ export function StickyServices({ services }: { services: Service[] }) {
       {services.map((service, panelIndex) => (
         <div
           key={service.index}
-          className="service-panel sticky top-0 flex min-h-[72svh] flex-col overflow-hidden md:min-h-[85svh] lg:min-h-screen"
+          className="service-panel sticky top-3 mx-3 flex min-h-[72svh] flex-col overflow-hidden rounded-[3rem] md:top-4 md:mx-5 md:min-h-[85svh] lg:min-h-[calc(100vh-2rem)]"
           style={{
             backgroundColor: service.bg,
             color: service.fg,
@@ -147,7 +158,7 @@ export function StickyServices({ services }: { services: Service[] }) {
 
           <span
             aria-hidden
-            className="service-watermark pointer-events-none absolute bottom-0 right-0 select-none font-heading leading-none tracking-tighter"
+            className="service-watermark pointer-events-none absolute bottom-0 left-0 select-none font-heading leading-none tracking-tighter"
             style={{
               fontSize: 'clamp(8rem, 28vw, 22rem)',
               color: withAlpha(service.fg, service.lightScheme ? 0.06 : 0.09),
@@ -157,6 +168,7 @@ export function StickyServices({ services }: { services: Service[] }) {
             {service.index}
           </span>
 
+          {/* Top bar */}
           <div className="relative flex items-center justify-between px-8 pt-8 md:px-14 md:pt-10">
             <span
               className="font-mono text-xs uppercase tracking-[0.18em]"
@@ -182,56 +194,31 @@ export function StickyServices({ services }: { services: Service[] }) {
             </div>
           </div>
 
-          <div className="relative flex flex-1 items-center px-8 pt-6 pb-4 md:px-14">
-            <h3
-              className="relative font-heading leading-[0.88] tracking-[-0.03em] md:max-w-[58%]"
-              style={{ fontSize: 'clamp(3.25rem, 8.5vw, 5.75rem)' }}
-            >
-              {service.title}
-            </h3>
+          {/* Two-column body */}
+          <div className="relative flex flex-1 flex-col lg:grid lg:grid-cols-2">
 
-            {service.image && (
-              <div
-                className="pointer-events-none absolute inset-y-0 right-0 hidden w-[38%] sm:block md:w-[42%]"
+            {/* LEFT — texte */}
+            <div className="relative z-10 flex flex-col justify-center px-8 py-8 md:px-14 md:py-10">
+              <span
+                className="font-mono text-[11px] tabular-nums"
+                style={{ color: withAlpha(service.fg, 0.3) }}
                 aria-hidden
               >
-                <Image
-                  src={service.image}
-                  fill
-                  alt=""
-                  className="object-cover"
-                  style={{ opacity: service.lightScheme ? 0.4 : 0.55 }}
-                  sizes="42vw"
-                />
-                <div
-                  className="absolute inset-y-0 left-0 w-4/5"
-                  style={{
-                    background: `linear-gradient(to right, ${service.bg}, transparent)`,
-                  }}
-                />
-                <div
-                  className="absolute inset-x-0 top-0 h-36"
-                  style={{
-                    background: `linear-gradient(to bottom, ${service.bg}, transparent)`,
-                  }}
-                />
-                <div
-                  className="absolute inset-x-0 bottom-0 h-36"
-                  style={{
-                    background: `linear-gradient(to top, ${service.bg}, transparent)`,
-                  }}
-                />
-              </div>
-            )}
-          </div>
+                {service.index}
+              </span>
 
-          <div
-            className="mx-8 shrink-0 md:mx-14"
-            style={{ height: '1px', backgroundColor: withAlpha(service.fg, 0.12) }}
-          />
+              <h3
+                className="relative mt-3 font-heading leading-[0.9] tracking-[-0.03em]"
+                style={{ fontSize: 'clamp(2.6rem, 5.5vw, 4.75rem)' }}
+              >
+                {service.title}
+              </h3>
 
-          <div className="relative px-8 pt-8 pb-12 md:px-14 md:pb-14">
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-16">
+              <div
+                className="my-7 h-px w-14"
+                style={{ backgroundColor: service.accentLine ?? withAlpha(service.fg, 0.3) }}
+              />
+
               <p
                 className="max-w-sm text-base leading-relaxed"
                 style={{ color: service.muted }}
@@ -239,11 +226,11 @@ export function StickyServices({ services }: { services: Service[] }) {
                 {service.description}
               </p>
 
-              <ul className="flex flex-col gap-0">
+              <ul className="mt-7 flex flex-col gap-0">
                 {service.items.map((item, i) => (
                   <li
                     key={item}
-                    className="service-item flex items-center justify-between border-b py-3.5"
+                    className="service-item flex items-center justify-between border-b py-3"
                     style={{ borderColor: withAlpha(service.fg, 0.12) }}
                   >
                     <span className="text-[0.9375rem]">{item}</span>
@@ -257,17 +244,67 @@ export function StickyServices({ services }: { services: Service[] }) {
                   </li>
                 ))}
               </ul>
+
+              <TransitionLink
+                href={`/contact?service=${service.slug}`}
+                label={`Nous contacter — ${service.title}`}
+                className="focus-ring mt-9 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest transition-opacity hover:opacity-70"
+                style={{ color: service.accentLine ?? service.fg }}
+              >
+                Nous contacter
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </TransitionLink>
             </div>
 
-            <TransitionLink
-              href={`/contact?service=${service.slug}`}
-              label={`En savoir plus — ${service.title}`}
-              className="focus-ring mt-10 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest transition-opacity hover:opacity-70"
-              style={{ color: service.accentLine ?? service.fg }}
-            >
-              En savoir plus
-              <ArrowUpRight className="h-3.5 w-3.5" />
-            </TransitionLink>
+            {/* RIGHT — image (desktop) */}
+            {service.image && (
+              <div className="relative hidden lg:block">
+                <Image
+                  src={service.image}
+                  fill
+                  alt=""
+                  className="object-cover"
+                  style={{ opacity: service.lightScheme ? 0.8 : 0.9 }}
+                  sizes="50vw"
+                />
+                {/* Fondu gauche pour raccorder les colonnes */}
+                <div
+                  className="absolute inset-y-0 left-0 w-1/4"
+                  style={{ background: `linear-gradient(to right, ${service.bg}, transparent)` }}
+                />
+                {/* Fondu haut & bas */}
+                <div
+                  className="absolute inset-x-0 top-0 h-20"
+                  style={{ background: `linear-gradient(to bottom, ${service.bg}, transparent)` }}
+                />
+                <div
+                  className="absolute inset-x-0 bottom-0 h-20"
+                  style={{ background: `linear-gradient(to top, ${service.bg}, transparent)` }}
+                />
+              </div>
+            )}
+
+            {/* Image mobile — bandeau sous le texte */}
+            {service.image && (
+              <div className="relative h-44 shrink-0 lg:hidden">
+                <Image
+                  src={service.image}
+                  fill
+                  alt=""
+                  className="object-cover"
+                  style={{ opacity: service.lightScheme ? 0.65 : 0.75 }}
+                  sizes="100vw"
+                />
+                <div
+                  className="absolute inset-x-0 top-0 h-12"
+                  style={{ background: `linear-gradient(to bottom, ${service.bg}, transparent)` }}
+                />
+                <div
+                  className="absolute inset-x-0 bottom-0 h-12"
+                  style={{ background: `linear-gradient(to top, ${service.bg}, transparent)` }}
+                />
+              </div>
+            )}
           </div>
         </div>
       ))}

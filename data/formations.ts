@@ -16,7 +16,7 @@ export type FormationProgram = {
 export const formationsContent = {
   eyebrow: 'Formations',
   title: 'Formations IA & Tech',
-  lead: 'Des parcours concrets pour monter en compétence rapidement — du no-code à l’ingénierie avancée.',
+  lead: "Des parcours concrets pour monter en compétence rapidement — du no-code à l'ingénierie avancée.",
   stats: [
     { value: '50+', label: 'Sessions livrées' },
     { value: '12', label: 'Entreprises accompagnées' },
@@ -47,7 +47,7 @@ export const formationsContent = {
   audiences: [
     {
       title: 'Directions & métiers',
-      description: 'Comprendre l’IA, le digital et les enjeux produit sans jargon technique.',
+      description: "Comprendre l'IA, le digital et les enjeux produit sans jargon technique.",
     },
     {
       title: 'Équipes techniques',
@@ -93,7 +93,7 @@ export const formationsContent = {
     },
     {
       step: 'Suivi',
-      detail: 'Bilan à 30 jours, ressources complémentaires et points d’amélioration.',
+      detail: "Bilan à 30 jours, ressources complémentaires et points d'amélioration.",
     },
   ],
   faq: [
@@ -103,7 +103,7 @@ export const formationsContent = {
     },
     {
       q: 'Peut-on personnaliser le contenu ?',
-      a: 'Oui. Chaque programme part d’un diagnostic pour coller à vos outils, votre secteur et votre niveau.',
+      a: "Oui. Chaque programme part d'un diagnostic pour coller à vos outils, votre secteur et votre niveau.",
     },
     {
       q: 'Quelle taille de groupe recommandez-vous ?',
@@ -111,7 +111,7 @@ export const formationsContent = {
     },
     {
       q: 'Comment obtenir un devis ?',
-      a: 'Cliquez sur « S’inscrire » ou contactez-nous avec le programme souhaité. Réponse sous 48h avec une proposition adaptée.',
+      a: "Cliquez sur « S'inscrire » ou contactez-nous avec le programme souhaité. Réponse sous 48h avec une proposition adaptée.",
     },
   ],
   cta: 'Demander un programme sur mesure',
@@ -122,17 +122,17 @@ export const formationsContent = {
   },
   gallery: [
     {
-      src: '/projects/elearning.png',
-      alt: 'Plateforme e-learning — Golaine Tech',
+      src: '/african-american-woman-working-from-home.jpg',
+      alt: 'E-Learning — Golaine Tech',
       label: 'E-Learning',
     },
     {
-      src: '/projects/assistant-ia.png',
-      alt: 'Formation IA — Golaine Tech',
+      src: '/ai-cloud-concept-with-robot-arms.jpg',
+      alt: 'Formation IA & ML — Golaine Tech',
       label: 'IA & ML',
     },
     {
-      src: '/projects/atelier.png',
+      src: '/home-made-robot-desk.jpg',
       alt: 'Atelier pratique — Golaine Tech',
       label: 'Atelier',
     },
@@ -144,13 +144,13 @@ export const formationPrograms: FormationProgram[] = [
     slug: 'ia-fondamentaux',
     title: 'IA & Machine Learning — Fondamentaux',
     description:
-      'Comprendre les briques ML, évaluer des cas d’usage et démarrer un POC responsable.',
+      "Comprendre les briques ML, évaluer des cas d'usage et démarrer un POC responsable.",
     duration: '3 jours',
     maxParticipants: 16,
     pricing: 'Sur devis',
     level: 'Intermédiaire',
     featured: true,
-    image: '/projects/assistant-ia.png',
+    image: '/ai-cloud-with-robot-head.jpg',
     topics: [
       'Données & features',
       'Modèles supervisés / non supervisés',
@@ -167,11 +167,11 @@ export const formationPrograms: FormationProgram[] = [
     maxParticipants: 20,
     pricing: 'Sur devis',
     level: 'Débutant',
-    image: '/projects/nova.png',
+    image: '/automatisation.jpg',
     topics: [
       'Cartographie des processus',
       'Outils no-code & intégrations',
-      'Gouvernance & droits d’accès',
+      "Gouvernance & droits d'accès",
       'Monitoring des automatisations',
     ],
   },
@@ -184,7 +184,7 @@ export const formationPrograms: FormationProgram[] = [
     maxParticipants: 12,
     pricing: 'Sur devis',
     level: 'Intermédiaire',
-    image: '/projects/dashboard.png',
+    image: '/pexels-naboth-otieno-83498565-19805876.jpg',
     topics: [
       'App Router & Server Components',
       'TypeScript en production',
@@ -201,10 +201,10 @@ export const formationPrograms: FormationProgram[] = [
     maxParticipants: 18,
     pricing: 'Sur devis',
     level: 'Débutant',
-    image: '/projects/design-system.png',
+    image: '/representations-user-experience-interface-design.jpg',
     topics: [
       'Recherche utilisateur rapide',
-      'Ateliers d’idéation',
+      "Ateliers d'idéation",
       'Prototypage haute fidélité',
       'Tests utilisateurs & itération',
     ],
@@ -218,7 +218,7 @@ export const formationPrograms: FormationProgram[] = [
     maxParticipants: 24,
     pricing: 'Sur devis',
     level: 'Débutant',
-    image: '/projects/lumen.png',
+    image: '/engineer-protecting-company-critical-infrastructure-from-cyber-threats.jpg',
     topics: [
       'Hygiène numérique',
       'Phishing & ingénierie sociale',
@@ -235,7 +235,7 @@ export const formationPrograms: FormationProgram[] = [
     maxParticipants: 14,
     pricing: 'Sur devis',
     level: 'Expert',
-    image: '/projects/monolith.png',
+    image: '/close-up-man-working-computer-chips.jpg',
     topics: [
       'Inventaire & CMDB',
       'Monitoring & alerting',

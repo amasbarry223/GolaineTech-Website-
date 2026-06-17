@@ -234,7 +234,7 @@ export function ProjectDetail({ project }: ProjectDetailProps) {
               sizes="100vw"
             />
           </div>
-          <div className="absolute inset-0 bg-background/25" />
+          <div className="absolute inset-0 bg-background/45" />
           <div className="page-hero-overlay absolute inset-0" />
         </div>
 
