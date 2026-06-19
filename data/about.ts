@@ -91,9 +91,9 @@ export const teamMembers: TeamMember[] = [
     },
   },
   {
-    id: 'hamadou-dicko',
-    name: 'Hamadou Dicko',
-    role: 'Développeur',
+    id: 'hamadoun-sidibe',
+    name: 'Hamadoun O Sidibé',
+    role: 'Designer UX/UI',
     bio: 'Conception et développement de solutions numériques fiables pour Golaine Tech.',
     socials: {
       linkedin: 'https://www.linkedin.com/company/golaine-tech',
