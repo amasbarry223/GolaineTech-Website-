@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react'
@@ -20,7 +20,7 @@ export function SiteNav() {
   const shouldReduceMotion = useReducedMotion()
   const menuRef = useRef<HTMLDivElement>(null)
   const toggleRef = useRef<HTMLButtonElement>(null)
-  const firstLinkRef = useRef<HTMLButtonElement>(null)
+  const firstLinkRef = useRef<HTMLAnchorElement>(null)
 
   const hoveredLink = links.find((l) => l.href === hovered) ?? links[0]
   const preview = hoveredLink.preview
@@ -130,10 +130,10 @@ export function SiteNav() {
             role="dialog"
             aria-modal="true"
             aria-label="Navigation principale"
-            initial={shouldReduceMotion ? false : { opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            initial={shouldReduceMotion ? false : { clipPath: 'inset(0 0 100% 0)', opacity: 0 }}
+            animate={{ clipPath: 'inset(0 0 0% 0)', opacity: 1 }}
+            exit={{ clipPath: 'inset(0 0 100% 0)', opacity: 0 }}
+            transition={{ duration: 0.65, ease: [0.76, 0, 0.24, 1] }}
             className="fixed inset-0 z-[8050] bg-background"
           >
             {/* Ambiance — dégradés uniquement, pas de glass */}
@@ -167,21 +167,18 @@ export function SiteNav() {
                             ease: [0.22, 1, 0.36, 1],
                           }}
                         >
-                          <button
-                            ref={i === 0 ? firstLinkRef : undefined}
-                            type="button"
-                            disabled={isActive}
+                          <TransitionLink
+                            ref={i === 0 ? (firstLinkRef as React.Ref<HTMLAnchorElement>) : undefined}
+                            href={isActive ? '#' : link.href}
+                            label={link.label}
                             onMouseEnter={() => setHovered(link.href)}
                             onFocus={() => setHovered(link.href)}
-                            onClick={() => {
-                              if (isActive) return
-                              setOpen(false)
-                              navigate(link.href, link.label)
-                            }}
                             aria-current={isActive ? 'page' : undefined}
+                            aria-disabled={isActive}
                             className={cn(
                               'focus-ring group flex w-full items-start gap-4 border-t border-border/25 py-4 text-left transition-colors duration-300 md:gap-6 md:py-5',
                               isHighlighted && 'border-border/40',
+                              isActive && 'pointer-events-none',
                             )}
                           >
                             <span
@@ -247,7 +244,7 @@ export function SiteNav() {
                             >
                               <ArrowUpRight className="h-4 w-4 text-accent" />
                             </span>
-                          </button>
+                          </TransitionLink>
                         </motion.li>
                       )
                     })}
@@ -316,7 +313,6 @@ export function SiteNav() {
                           fill
                           className="object-cover"
                           sizes="(min-width: 768px) 35vw, 0px"
-                          priority
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-background/95 via-background/15 to-transparent" />
                         <div className="absolute inset-x-0 bottom-0 p-8 lg:p-10">

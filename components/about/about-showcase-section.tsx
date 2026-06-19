@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { Check, ArrowRight } from 'lucide-react'
+import { motion } from 'motion/react'
 import { aboutContent } from '@/data/about'
 import { TransitionLink } from '@/components/page-transition'
 import { cn } from '@/lib/utils'
@@ -60,9 +61,25 @@ export function AboutShowcaseSection({
             ))}
           </div>
 
-          <ul className="mt-10 space-y-4">
+          <motion.ul
+            className="mt-10 space-y-4"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.25 }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
+            }}
+          >
             {aboutContent.highlights.map((item) => (
-              <li key={item} className="flex items-start gap-3">
+              <motion.li
+                key={item}
+                className="flex items-start gap-3"
+                variants={{
+                  hidden: { opacity: 0, x: -18 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+                }}
+              >
                 <Check
                   className="mt-0.5 h-4 w-4 shrink-0 text-accent"
                   strokeWidth={2.5}
@@ -71,9 +88,9 @@ export function AboutShowcaseSection({
                 <span className="text-pretty text-base leading-relaxed text-foreground/80">
                   {item}
                 </span>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
 
           {showCta && (
             <TransitionLink
@@ -90,7 +107,7 @@ export function AboutShowcaseSection({
         {/* Colonne visuelle */}
         <figure className="relative mx-auto w-full max-w-lg lg:max-w-none lg:justify-self-end">
           <div
-            className="absolute -left-3 -top-3 z-20 h-[88px] w-[88px] rounded-2xl border border-foreground/10 bg-foreground/[0.04] backdrop-blur-[2px] md:-left-5 md:-top-5 md:h-[104px] md:w-[104px]"
+            className="absolute -left-3 -top-3 z-20 h-[88px] w-[88px] rounded-2xl border border-accent/20 bg-accent/[0.06] backdrop-blur-[2px] md:-left-5 md:-top-5 md:h-[104px] md:w-[104px]"
             aria-hidden
           />
 

@@ -60,24 +60,34 @@ export function CustomCursor() {
 
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 z-[9999]">
+      {/* Dot — position exacte, pas de lag */}
       <div
         ref={dotRef}
         className="absolute left-0 top-0 -ml-1 -mt-1 h-2 w-2 rounded-full bg-accent"
+        style={{ willChange: 'transform' }}
       />
+      {/* Ring — scale uniquement, zéro layout reflow */}
       <div
         ref={ringRef}
-        className="absolute left-0 top-0 flex items-center justify-center rounded-full border border-foreground/40 transition-[width,height,background-color] duration-300 ease-out"
+        className="absolute left-0 top-0 -ml-[17px] -mt-[17px] flex h-[34px] w-[34px] items-center justify-center overflow-hidden rounded-full border"
         style={{
-          width: hovering ? 64 : 34,
-          height: hovering ? 64 : 34,
-          marginLeft: hovering ? -32 : -17,
-          marginTop: hovering ? -32 : -17,
+          transform: 'translate3d(0,0,0)',
+          scale: hovering ? 1.88 : 1,
+          transition: 'scale 0.35s cubic-bezier(0.22,1,0.36,1), background-color 0.25s ease, border-color 0.25s ease',
           backgroundColor: label ? 'var(--accent)' : 'transparent',
           borderColor: label ? 'var(--accent)' : 'rgba(245,245,242,0.4)',
+          willChange: 'transform',
         }}
       >
         {label ? (
-          <span className="text-[10px] font-medium uppercase tracking-widest text-background">
+          <span
+            className="text-[8px] font-medium uppercase tracking-widest text-background"
+            style={{
+              opacity: hovering ? 1 : 0,
+              transition: 'opacity 0.2s ease',
+              scale: hovering ? `${1 / 1.88}` : '1',
+            }}
+          >
             {label}
           </span>
         ) : null}

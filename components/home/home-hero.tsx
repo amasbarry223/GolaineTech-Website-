@@ -13,7 +13,7 @@ const btnMd =
   '!px-9 !py-4 !text-sm !tracking-[0.1em] sm:!px-10 sm:!py-4'
 
 const btnOutlineHero =
-  '!border-foreground/60 !bg-[#0e0e10] !text-foreground shadow-[0_8px_32px_rgba(0,0,0,0.55)] hover:!border-accent hover:!bg-[#141416]'
+  '!border-foreground/60 !bg-background !text-foreground shadow-[0_8px_32px_rgba(0,0,0,0.55)] hover:!border-accent hover:!bg-bg-soft'
 
 const btnPrimaryHero =
   '!bg-accent !text-background shadow-[0_8px_36px_rgba(39,183,165,0.6)] hover:!bg-accent-2'
@@ -137,19 +137,19 @@ export function HomeHero() {
               {slide.eyebrow}
             </p>
 
-            <h1 className="mt-6 font-heading text-[clamp(2.25rem,5.5vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-[#fafaf8] text-balance [text-shadow:0_2px_4px_rgba(0,0,0,0.9),0_6px_24px_rgba(0,0,0,0.65)]">
+            <h1 className="mt-6 font-heading text-[clamp(2.25rem,5.5vw,4.5rem)] font-semibold leading-[1.05] tracking-[-0.03em] text-foreground text-balance [text-shadow:0_2px_4px_rgba(0,0,0,0.9),0_6px_24px_rgba(0,0,0,0.65)]">
               <span className="block">{slide.title}</span>
               {slide.titleAccent && (
-                <span className="block text-[#fafaf8]">{slide.titleAccent}</span>
+                <span className="block text-foreground">{slide.titleAccent}</span>
               )}
             </h1>
 
-            <p className="mx-auto mt-7 max-w-[36rem] text-pretty text-lg leading-relaxed text-[#f2f2ef] md:text-xl [text-shadow:0_1px_8px_rgba(0,0,0,0.85)]">
+            <p className="mx-auto mt-7 max-w-[36rem] text-pretty text-lg leading-relaxed text-foreground/90 md:text-xl [text-shadow:0_1px_8px_rgba(0,0,0,0.85)]">
               {slide.description}
             </p>
 
             {slide.supporting && (
-              <p className="mx-auto mt-4 max-w-[36rem] text-pretty text-base leading-relaxed text-[#e4e4e0] md:text-lg [text-shadow:0_1px_8px_rgba(0,0,0,0.75)]">
+              <p className="mx-auto mt-4 max-w-[36rem] text-pretty text-base leading-relaxed text-foreground/80 md:text-lg [text-shadow:0_1px_8px_rgba(0,0,0,0.75)]">
                 {slide.supporting}
               </p>
             )}
@@ -197,11 +197,15 @@ export function HomeHero() {
                   onClick={() => goTo(i)}
                   className="focus-ring group p-1"
                 >
-                  <span
-                    className={cn(
-                      'block h-[2px] rounded-full transition-all duration-500',
-                      i === index ? 'w-8 bg-accent' : 'w-3 bg-foreground/20 group-hover:bg-foreground/35',
-                    )}
+                  <motion.span
+                    className="block h-[2px] rounded-full origin-left"
+                    animate={{
+                      scaleX: i === index ? 2.67 : 1,
+                      opacity: i === index ? 1 : 0.25,
+                      backgroundColor: i === index ? 'var(--accent)' : 'rgba(245,245,242,0.5)',
+                    }}
+                    transition={{ type: 'spring', stiffness: 320, damping: 28 }}
+                    style={{ width: '0.75rem' }}
                   />
                 </button>
               ))}

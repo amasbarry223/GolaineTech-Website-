@@ -32,6 +32,9 @@ export function ProjectCard({
       whileInView={disableEntrance ? undefined : { opacity: 1, y: 0 }}
       viewport={disableEntrance ? undefined : { once: true, margin: '-10%' }}
       transition={{ duration: 0.7, delay: (index % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -6 }}
+      whileTap={{ scale: 0.98 }}
+      style={{ transition: 'none' }}
       className={className}
     >
       <TransitionLink
@@ -40,13 +43,17 @@ export function ProjectCard({
         data-cursor="Voir"
         className="group block w-full text-left focus-ring rounded-2xl"
       >
-        <div className={`relative ${aspectClass} w-full overflow-hidden rounded-2xl bg-surface`}>
+        <motion.div
+          className={`relative ${aspectClass} w-full overflow-hidden rounded-2xl bg-surface`}
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        >
           <Image
             src={project.cover || '/placeholder.svg'}
             alt={project.title}
             fill
             sizes="(max-width: 768px) 95vw, 52vw"
-            className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            className="object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
           <div className="absolute inset-0 bg-background/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -65,7 +72,7 @@ export function ProjectCard({
               </span>
             </div>
           </div>
-        </div>
+        </motion.div>
         <p className="mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground md:text-base">
           {project.excerpt}
         </p>
